@@ -16,7 +16,7 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
             //second fix: avoid image
-            if (markdown.substring(nextOpenBracket-1, nextOpenBracket).equals("!")){
+            if (nextOpenBracket != 0 && markdown.substring(nextOpenBracket-1, nextOpenBracket).equals("!")){
                 currentIndex = closeParen + 1;
                 continue;
             }
