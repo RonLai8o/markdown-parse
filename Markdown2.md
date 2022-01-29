@@ -1,4 +1,5 @@
 # Title
 
-[a link!](https://something.com)
-[another link!](some-page.html
+// if there is a symbol missing
+[a link!](https://something.com
+[another link!](some-page.html)

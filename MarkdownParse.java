@@ -15,15 +15,26 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            //second fix: avoid image
-            if (nextOpenBracket != 0 && markdown.substring(nextOpenBracket-1, nextOpenBracket).equals("!")){
-                currentIndex = closeParen + 1;
-                continue;
-            }
+
             // first fix: avoid infinite loop
             if (closeParen == -1 || openParen == -1 || nextCloseBracket == -1 || nextOpenBracket == -1){
                 break;
             }else{
+                //third fix: avoid symbol [] which is not for link
+                if(!(markdown.substring(nextCloseBracket+1, nextCloseBracket+2).equals("("))){
+                    currentIndex = nextCloseBracket + 1;
+                    continue;
+                }
+                //end third fix
+
+                //second fix: avoid image
+                if (nextOpenBracket != 0 && markdown.substring(nextOpenBracket-1, nextOpenBracket).equals("!")){
+                    currentIndex = closeParen + 1;
+                    continue;
+                }
+                // end of second fix
+
+
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen + 1;
             }
