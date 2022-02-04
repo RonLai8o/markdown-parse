@@ -5,4 +5,4 @@
 \
 [another link](some-page.html)
 \
-I like to use [something] and ('Hi to everyone') in my sentence.
+I like to use [something] and ('Hi everyone') in my sentence.

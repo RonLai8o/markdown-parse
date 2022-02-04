@@ -7,3 +7,5 @@ hi
 \
 ![link](image.jpg)
 
+[link](http://somemorething.com)
+
