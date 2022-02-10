@@ -53,7 +53,8 @@ public class MarkdownParse {
                     continue;
                 }
                 // end of second fix
-
+                if(true){
+                }
 
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen + 1;
