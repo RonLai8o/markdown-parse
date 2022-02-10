@@ -30,8 +30,8 @@ public class MarkdownParseTest {
         list[3].add("https://something.com");
         list[3].add("some-page.html");
         list[4].add("www.something.com");
-        list[4].add("www.something.com/(VSCODE)/something");
-
+        list[4].add("www.something.com/(VSCODE)/somethin");
+    
 
         for(int i = 0; i<5; i++){
             String file = load("Markdown" + (i+1) + ".md");
