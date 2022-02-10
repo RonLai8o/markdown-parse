@@ -30,7 +30,7 @@ public class MarkdownParseTest {
         list[3].add("https://something.com");
         list[3].add("some-page.html");
         list[4].add("www.something.com");
-        list[4].add("www.something.com/(VSCODE)/somethin");
+        list[4].add("www.something.com/(VSCODE)/something");
     
 
         for(int i = 0; i<5; i++){
