@@ -11,6 +11,8 @@ public class MarkdownParseTest {
     public void addition() {
         assertEquals(2, 1 + 1);
     }
+    
+    @Test
     public void parse() throws IOException{
         ArrayList<String>[] list = new ArrayList[5];
         list[0] = new ArrayList();
@@ -23,7 +25,7 @@ public class MarkdownParseTest {
         list[0].add("http://somemorething.com");
         list[1].add("https://something.com");
         list[1].add("some-page.html");
-        list[2].add("https://something.com");  
+        list[2].add("www.something.com");  
         list[2].add("www.something.com");
         list[3].add("https://something.com");
         list[3].add("some-page.html");
@@ -31,7 +33,7 @@ public class MarkdownParseTest {
         list[4].add("www.something.com/(VSCODE)/something");
 
 
-        for(int i = 0; i<6; i++){
+        for(int i = 0; i<5; i++){
             String file = load("Markdown" + (i+1) + ".md");
             assertEquals(list[i], MarkdownParse.getLinks(file));
         }
