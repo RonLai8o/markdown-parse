@@ -42,12 +42,11 @@ public class MarkdownParse {
                         moreParen = partLink.indexOf("(");
                     }
                 }//end of while loop
-                if(missingClosingParen){ //this is not a link, so go back to search again
+                if(missingClosingParen == true){ //this is not a link, so go back to search again
                     currentIndex = openParen + 1;
                     continue;
                 }
                 // fourth fix and fifth fix end 
-
                 //second fix: avoid image
                 if (nextOpenBracket != 0 && markdown.substring(nextOpenBracket-1, nextOpenBracket).equals("!")){
                     currentIndex = closeParen + 1;
@@ -62,6 +61,7 @@ public class MarkdownParse {
         }
         return toReturn;
     }
+    //Hi
     public static void main(String[] args) throws IOException {
 		Path fileName = Path.of(args[0]);
 	    String contents = Files.readString(fileName);
