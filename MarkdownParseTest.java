@@ -34,7 +34,7 @@ public class MarkdownParseTest {
         list[3].add("some-page.html");
         list[4].add("www.something.com");
         list[4].add("www.something.com/(VSCODE)/something");
-        list[5].add("%60google.com");
+        list[5].add("`google.com");
         list[5].add("google.com");
         list[5].add("ucsd.edu");
         list[6].add("a.com");
