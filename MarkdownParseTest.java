@@ -7,6 +7,7 @@ import java.util.*;
 
 
 public class MarkdownParseTest {
+    List<String> strList;
     @Test
     public void addition() {
         assertEquals(2, 1 + 1);
@@ -34,24 +35,10 @@ public class MarkdownParseTest {
         list[3].add("some-page.html");
         list[4].add("www.something.com");
         list[4].add("www.something.com/(VSCODE)/something");
-        list[5].add("`google.com");
-        list[5].add("google.com");
-        list[5].add("ucsd.edu");
-        list[6].add("a.com");
-        list[6].add("a.com(())");
-        list[6].add("example.com");
-        list[7].add("https://www.twitter.com");
-        list[7].add("https://ucsd-cse15l-w22.github.io/");
-        list[7].add("https://cse.ucsd.edu/");
-    
 
         for(int i = 0; i<5; i++){
             String file = load("Markdown" + (i+1) + ".md");
             assertEquals(list[i], MarkdownParse.getLinks(file));
-        }
-        for(int j = 5; j<8;j++){
-            String file = load("Snippet" + (j-4) + ".md");
-            assertEquals(list[j], MarkdownParse.getLinks(file));
         }
     }
 
@@ -60,4 +47,34 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         return contents;
     }
+    @Test
+    public void snippet1() throws IOException{
+        Path fileName = Path.of("Snippet1.md");
+        String contents = Files.readString(fileName);
+        this.strList = MarkdownParse.getLinks(contents);
+
+        assertEquals(List.of("%60google.com","google.com","ucsd.edu"), this.strList);
+
+    }
+    
+    @Test
+    public void snippet2() throws IOException{
+        Path fileName = Path.of("Snippet2.md");
+        String contents = Files.readString(fileName);
+        this.strList = MarkdownParse.getLinks(contents);
+
+        assertEquals(List.of("a.com","a.com(())","example.com"), this.strList);
+
+    }
+
+    @Test
+    public void snippet3() throws IOException{
+        Path fileName = Path.of("Snippet3.md");
+        String contents = Files.readString(fileName);
+        this.strList = MarkdownParse.getLinks(contents);
+
+        assertEquals(List.of("https://www.twitter.com","https://ucsd-cse15l-w22.github.io/","https://cse.ucsd.edu/"), this.strList);
+
+    }
+
 }
