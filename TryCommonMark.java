@@ -12,7 +12,8 @@ class TryCommonMark {
         Node node = parser.parse("Example\n=======\n\nSome more text");
         WordCountVisitor visitor = new WordCountVisitor();
         node.accept(visitor);
-        visitor.wordCount;  // 4    }
+        visitor.getWordCount();  // 4  
+    }
 }
 
 class WordCountVisitor extends AbstractVisitor {
@@ -27,5 +28,9 @@ class WordCountVisitor extends AbstractVisitor {
 
         // Descend into children (could be omitted in this case because Text nodes don't have children).
         visitChildren(text);
+    }
+
+    public int getWordCount(){
+        return wordCount;
     }
 }
